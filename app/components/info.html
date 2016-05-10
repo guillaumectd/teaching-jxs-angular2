@@ -1,0 +1,17 @@
+<div *ngIf="pokemon != null" style="float:left; padding-left:40px;">
+    <h1>{{pokemon?.name}} - {{pokemon?.id}}</h1>
+    
+    <br>
+    Base experience : {{pokemon?.base_experience}}
+    <br>
+    Weight : {{pokemon?.weight}}
+    <br>
+    Abilities : 
+    <div *ngIf="pokemon != null && pokemon.abilities != null">
+        <ul>
+            <li *ngFor="let ability of pokemon.abilities">
+                Ability {{ability.ability.name}} : is_hidden : {{ability.is_hidden}}  -  slot : {{ability.slot}}
+            </li>
+        </ul>
+    </div>
+</div>

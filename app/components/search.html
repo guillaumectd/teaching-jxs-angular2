@@ -1,0 +1,20 @@
+
+<div style="float:left;">
+    Recherche par ID : <input [(ngModel)]="id" />
+    <br>
+    Recherche par Nom : <input [(ngModel)]="pokemonSearchName" />
+
+    <ul>
+        <li *ngFor="let pokemon of pokemons | pokemonName:pokemonSearchName | pokemonID:id" (click)="onChange(pokemon.id)">
+            <span [class.selected]="pokemon === selectedPokemon">{{pokemon.id}} : {{pokemon.name}}</span>
+        </li>
+    </ul>
+</div>
+
+<poke-info [pokemon]=selectedPokemon></poke-info>
+
+<style>
+    .selected {
+        background-color: yellow;
+    }
+</style>
